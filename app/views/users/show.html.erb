@@ -1,0 +1,12 @@
+
+    	<h1>Posts by <%= @user.email %></h1>
+    	<hr>
+	    	<% if @user.posts.count > 0 %>
+			  	<% Post.where(user_id: params[:id]).find_each do |p| %>
+			  		<h3><%= Professor.find(p.professor_id).name %> always says:</h3>
+			  		<h2>"<%= p.text %>"</h2>
+			  		<hr>
+			  	<% end %>
+				<% else %>
+					<h3>This user has no posts.</h3>
+				<% end %>
