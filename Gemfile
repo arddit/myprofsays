@@ -27,7 +27,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'pg', '0.17.1'
 gem 'foundation-rails'
+gem 'rails_12factor'
 
+
+ruby '2.3.0'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
