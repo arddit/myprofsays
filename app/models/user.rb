@@ -5,4 +5,19 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :posts
-end
+
+  attr_accessor :login
+
+  validates :username,
+  :presence => true,
+  :uniqueness => { :case_sensitive => false }
+
+	validate :validate_username
+
+		def validate_username
+		  if User.where(email: username).exists?
+		    errors.add(:username, :invalid)
+		  end
+		end
+		
+  end

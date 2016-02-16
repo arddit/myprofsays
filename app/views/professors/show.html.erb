@@ -1,0 +1,10 @@
+<h1><%= @prof.name %> always says:</h1> 
+
+<% if @prof.posts.count > 0 %>
+	<% Post.where(professor_id: params[:id]).find_each do |p| %>
+		<h2>"<%= p.text %>" - <%= User.find(p.user_id).username %></h2>
+		<hr>
+	<% end %>
+<% else %>
+	<h3>This professor has no posts yet.</h3>
+<% end %>
