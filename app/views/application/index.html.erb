@@ -1,12 +1,24 @@
 <div class="main">
-	<h2>
-		Welcome to MyProfessorSays. Click a professors name to learn their life advices or add a new post. 
-	</h2>
-	<hr>
+	<div class="large-centered"></div>
+		<h2>
+			Welcome to MyProfessorSays. 
+		</h2>
+		<h4>
+			Click a professors name to learn their life advices or add a new post. 
+		</h4>
+	</div>
 </div>
 
 <div class="row">
+	<hr>
+		<%= link_to "View all Posts", posts_path, class: "button" %>
+		<%= link_to "View all Professors", professors_path, class: "button" %>
+		<%= link_to "Add a new Post", posts_path, class: "button" %>
+	<hr>
+</div>
+
+<!-- <div class="row">
 	<% @prof.each do |p| %>
 		<p><%= link_to p.name, professor_path(p) %></p>
 	<% end %>
-</div>
+</div> -->

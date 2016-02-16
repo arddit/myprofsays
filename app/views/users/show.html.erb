@@ -1,10 +1,9 @@
-
-<h1>Posts by <%= @user.username %></h1>
+<p>Posts by <%= @user.username %></p>
 <hr>
 
 <% if @user.posts.count > 0 %>
 	<% Post.where(user_id: params[:id]).find_each do |p| %>
-		<h3><%= Professor.find(p.professor_id).name %> always says:</h3>
+		<h4><%= link_to Professor.find(p.professor_id).name, professor_path(p.professor_id) %> always says:</h4>
 		<h2>"<%= p.text %>"</h2>
 		<hr>
 	<% end %>
