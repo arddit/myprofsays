@@ -1,4 +1,12 @@
-Click a professors name to learn their life advices: <hr>
-<% @prof.each do |p| %>
-	<p><%= link_to p.name, professor_path(p) %></p>
-<% end %>
+<div class="main">
+	<h2>
+		Welcome to MyProfessorSays. Click a professors name to learn their life advices or add a new post. 
+	</h2>
+	<hr>
+</div>
+
+<div class="row">
+	<% @prof.each do |p| %>
+		<p><%= link_to p.name, professor_path(p) %></p>
+	<% end %>
+</div>

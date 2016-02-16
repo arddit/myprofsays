@@ -1,34 +1,35 @@
-<div class="top-bar">
-	<div class="top-bar-title">
-	<span class="badge">M</span> 
-	<span class="badge">Y</span> 
-	<span class="success badge">P</span> 
-	<span class="success badge">R</span> 
-	<span class="success badge">O</span> 
-	<span class="success badge">F</span> 
-	<span class="success badge">E</span> 
-	<span class="success badge">S</span> 
-	<span class="success badge">S</span> 
-	<span class="success badge">O</span> 
-	<span class="success badge">R</span> 
-	<span class="alert badge">S</span> 
-	<span class="alert badge">A</span> 
-	<span class="alert badge">Y</span> 
-	<span class="alert badge">S</span>
-	</div>
+<nav class="top-bar hide-for-small">
+	<a href="/"><div class="top-bar-title">
+		<span class="badge">M</span> 
+		<span class="badge">Y</span> 
+		<span class="success badge">P</span> 
+		<span class="success badge">R</span> 
+		<span class="success badge">O</span> 
+		<span class="success badge">F</span> 
+		<span class="success badge">E</span> 
+		<span class="success badge">S</span> 
+		<span class="success badge">S</span> 
+		<span class="success badge">O</span> 
+		<span class="success badge">R</span> 
+		<span class="alert badge">S</span> 
+		<span class="alert badge">A</span> 
+		<span class="alert badge">Y</span> 
+		<span class="alert badge">S</span>
+	</div></a>
   <div class="top-bar-right">
 	  <% if user_signed_in? %> 
 	  <ul class="menu">
-	  	<li><%= link_to "Home",  root_path %></li>
-			<li><%= link_to "Profile", user_path(current_user) %></li> 
-			<li><%= link_to "Settings", edit_user_registration_path(current_user) %></li>
-			<li><%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
+	  	<li><%= link_to "Home",  root_path, class: "button" %></li>
+			<li><%= link_to "Profile", user_path(current_user), class: "success button" %></li> 
+			<li><%= link_to "Settings", edit_user_registration_path(current_user), class: "alert button" %></li>
+			<li><%= link_to "Log out", destroy_user_session_path, method: "delete", class: "secondary button" %></li>
 		</ul>
 		<% else %>
-	  <ul class="menu">
-			<li><%= link_to "Log In", new_user_session_path %></li> 
-			<li><%= link_to "Sign Up", new_user_registration_path %></li> 
+		<div class="menu">
+			<li><%= link_to "Home", root_path, class: "button" %></li>
+			<li><%= link_to "Log In", new_user_session_path, class: "success button" %></li>
+			<li><%= link_to "Sign Up", new_user_registration_path, class: "alert button" %></li> 
 		</ul>
 		<% end %>
 	</div>
-</div>
+</nav>
