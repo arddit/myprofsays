@@ -4,7 +4,7 @@
 <% if @user.posts.count > 0 %>
 	<% Post.where(user_id: params[:id]).find_each do |p| %>
 		<h4><%= link_to Professor.find(p.professor_id).name, professor_path(p.professor_id) %> always says:</h4>
-		<h2>"<%= p.text %>"</h2>
+		<h4>"<%= p.text %>"</h4>
 		<hr>
 	<% end %>
 <% else %>

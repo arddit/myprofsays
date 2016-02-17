@@ -1,5 +1,5 @@
 <% @post.each do |p| %>
-	<h2>"<%= p.text %>"</h2> 
+	<h4>"<%= p.text %>"</h4> 
 	<h4>Professor: <%= link_to Professor.find(p.professor_id).name, professor_path(p.professor_id) %></h4>
 	<p>Posted by <%= link_to User.find(p.user_id).username, user_path(p.user_id)%></p>
 	<hr>
