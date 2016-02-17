@@ -8,7 +8,6 @@ class PostsController < ApplicationController
 
   def show
 		@post = Post.friendly.find(params[:id])
-    @post.upvote = 1
   end
 
   def new
@@ -51,6 +50,23 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def upvote
+    @post = Post.friendly.find(params[:id])
+
+    if current_user
+      if @post.votes.create(user_id: current_user.id)
+        flash[:notice] =  "Thank you for upvoting!"
+        redirect_to(posts_path)
+      else 
+        flash[:notice] =  "You have already upvoted this!"
+        redirect_to(posts_path)
+      end
+    else
+      redirect_to(posts_path)
+    end
+  end
+  helper_method :upvote
 
   private
     def set_post

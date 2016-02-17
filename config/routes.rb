@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :users
   resources :professors
   resources :posts
+  post "posts/:id" => "posts#upvote"
   root to: "application#index"
 end

@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
 
   has_many :posts
 
+  has_many :votes, dependent: :destroy
+  has_many :upvoted_posts, through: :votes, source: :post
+
   extend FriendlyId
   friendly_id :username, use: :slugged
 
