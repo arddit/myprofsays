@@ -57,6 +57,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:text, :upvote, :user_id, :professor_id)
+      params.require(:post).permit(:text, :upvote, :user_id, :professor_id, :slug)
     end
 end
