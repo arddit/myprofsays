@@ -15,6 +15,7 @@
 	      <%= f.collection_select :professor_id, Professor.all, :id, :name, autofocus: true %>
 	      <%= link_to "Add a new Professor", new_professor_path %></p>
 	    </div>
+	    <% f.upvote = 1 %>
 
 	    <br>
 	    <div class="actions">

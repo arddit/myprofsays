@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def show
 		@post = Post.friendly.find(params[:id])
+    @post.upvote = 1
   end
 
   def new

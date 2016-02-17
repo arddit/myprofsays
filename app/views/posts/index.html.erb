@@ -1,7 +1,13 @@
 <% @post.each do |p| %>
-	<h4>"<%= p.text %>"</h4> 
+	<h4>"<%= p.text %>"<%= p.upvote %></h4> 
 	<h4>Professor: <%= link_to Professor.find(p.professor_id).name, professor_path(p.professor_id) %></h4>
 	<p>Posted by <%= link_to User.find(p.user_id).username, user_path(p.user_id)%></p>
+	<% if current_user %>
+		<% if current_user.id == p.user_id %>
+	  	<%= link_to 'Edit', edit_post_path(p) %>
+	  	<%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' }%>
+	  <% end %>
+	<% end %>
 	<hr>
 <% end %>
 
