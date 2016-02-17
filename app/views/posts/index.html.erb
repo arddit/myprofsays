@@ -4,3 +4,8 @@
 	<p>Posted by <%= link_to User.find(p.user_id).username, user_path(p.user_id)%></p>
 	<hr>
 <% end %>
+
+<br>
+<br>
+<p><%= link_to "Add a new Post", new_post_path %></p>
+<p><%= link_to 'Back to all posts.', posts_path %></p>

@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
 
   has_many :posts
 
+  extend FriendlyId
+  friendly_id :username, use: :slugged
+
   attr_accessor :login
 
   validates :username,

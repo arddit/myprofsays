@@ -1,6 +1,6 @@
-<h4><%= @prof.name %> always says:</h4> 
+<h4><%= @professor.name %> always says:</h4> 
 
-<% if @prof.posts.count > 0 %>
+<% if @professor.posts.count > 0 %>
 	<% Post.where(professor_id: params[:id]).find_each do |p| %>
 		<h2>"<%= p.text %>"</h2>
 		<p>Posted by <%= link_to User.find(p.user_id).username, user_path(p.user_id) %></p>
@@ -9,3 +9,8 @@
 <% else %>
 	<h3>This professor has no posts yet.</h3>
 <% end %>
+
+<br>
+<br>
+<p><%= link_to "Add a new Professor", new_professor_path %></p>
+<p><%= link_to 'Back to all professors.', professors_path %></p>

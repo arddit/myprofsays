@@ -11,14 +11,11 @@
 
 <div class="row">
 	<hr>
-		<%= link_to "View all Posts", posts_path, class: "button" %>
-		<%= link_to "View all Professors", professors_path, class: "button" %>
-		<%= link_to "Add a new Post", posts_path, class: "button" %>
+	<div class="expanded button-group">
+		<%= link_to "View all Posts", posts_path, class: "hollow button" %>
+		<%= link_to "View all Professors", professors_path, class: "hollow button" %>
+		<%= link_to "Add a new Post", new_post_path, class: "hollow button" %>
+		<%= link_to "Add a new Professor", new_professor_path, class: "hollow button" %>
+	</div>
 	<hr>
 </div>
-
-<!-- <div class="row">
-	<% @prof.each do |p| %>
-		<p><%= link_to p.name, professor_path(p) %></p>
-	<% end %>
-</div> -->

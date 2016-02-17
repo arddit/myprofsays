@@ -1,0 +1,9 @@
+<h2>"<%= @post.text %>"</h2> 
+<h4>Professor: <%= link_to Professor.find(@post.professor_id).name, professor_path(@post.professor_id) %></h4>
+<p>Posted by <%= link_to User.find(@post.user_id).username, user_path(@post.user_id)%></p>
+<hr>
+
+<br>
+<br>
+<p><%= link_to "Add a new Post", new_post_path %></p>
+<p><%= link_to 'Back to all posts.', posts_path %></p>

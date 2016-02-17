@@ -1,3 +1,8 @@
-<% @prof.each do |p| %>
+<% @professor.each do |p| %>
 	<p><%= link_to p.name, professor_path(p) %></p>
 <% end %>
+
+<br>
+<br>
+<p><%= link_to "Add a new Professor", new_professor_path %></p>
+<p><%= link_to 'Back to all professors.', professors_path %></p>

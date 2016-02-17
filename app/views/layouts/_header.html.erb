@@ -1,4 +1,4 @@
-<nav class="top-bar hide-for-small">
+<nav class="top-bar hide-for-small expanded button-group">
 	<a href="/"><div class="top-bar-title">
 		<span class="badge">M</span> 
 		<span class="badge">Y</span> 
@@ -22,7 +22,7 @@
 	  	<li><%= link_to "Home",  root_path, class: "button" %></li>
 			<li><%= link_to "Profile", user_path(current_user), class: "success button" %></li> 
 			<li><%= link_to "Settings", edit_user_registration_path(current_user), class: "alert button" %></li>
-			<li><%= link_to "Log out", destroy_user_session_path, method: "delete", class: "secondary button" %></li>
+			<li><%= link_to "Log out", destroy_user_session_path, method: "delete", class: "warning button" %></li>
 		</ul>
 		<% else %>
 		<div class="menu">
