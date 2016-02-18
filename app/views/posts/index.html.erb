@@ -1,7 +1,7 @@
 <% @post.each do |p| %>
 	<h4>"<%= link_to p.text, p %>"</h4>
-<p>Professor: <%= link_to Professor.find(p.professor_id).name, professor_path(p.professor_id) %>
-	| by <%= link_to User.find(p.user_id).username, user_path(p.user_id)%>
+<p>Professor: <%= link_to Professor.find(p.professor_id).name, professor_path(Professor.friendly.find(p.professor_id)) %>
+	| by <%= link_to User.find(p.user_id).username, user_path(User.friendly.find(p.user_id))%>
 	| upvotes: <%= p.votes.count %></p>
 	<% if current_user %>
 		<% if current_user.id == p.user_id %>
@@ -12,7 +12,6 @@
 	<% else %>
 		Please <%= link_to "Log In", new_user_session_path %> or <%= link_to "Create an Account", new_user_registration_path %> to upvote posts.
 	<% end %>
-	<p></p>
 	<hr>
 <% end %>
 

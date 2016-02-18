@@ -68,6 +68,7 @@ class PostsController < ApplicationController
   end
   helper_method :upvote
 
+
   private
     def set_post
       @post = Post.friendly.find(params[:id])

@@ -1,8 +1,8 @@
 <h4><%= link_to ' All Posts', posts_path, class: "fa fa-arrow-left"%></h4>
 <br>
 <h4>"<%= @post.text %>"</h4> 
-<p>Professor: <%= link_to Professor.find(@post.professor_id).name, professor_path(@post.professor_id) %>
-	| by <%= link_to User.find(@post.user_id).username, user_path(@post.user_id)%>
+<p>Professor: <%= link_to Professor.find(@post.professor_id).name, professor_path(Professor.friendly.find(@post.professor_id)) %>
+	| by <%= link_to User.find(@post.user_id).username, user_path(User.friendly.find(@post.user_id))%>
 	| upvotes: <%= @post.votes.count %></p>
 
 <% if current_user %>
@@ -10,9 +10,18 @@
   	<p><%= link_to 'Edit', edit_post_path(@post) %>
   	<%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' }%></p>
   <% end %>
-  <%= link_to 'Upvote', @post, method: :upvote, class: "success button large hollow fa fa-arrow-circle-up fa-5x"%>
+  <%= link_to 'Upvote', @post, method: :upvoted, class: "success button hollow fa fa-arrow-circle-up" %>
+
 <% else %>
-	Please <%= link_to "Log In", new_user_session_path %> or <%= link_to "Create an Account", new_user_registration_path %> to upvote posts.
+	Please <%= link_to "Log In", new_user_session_path %> or <%= link_to "Create an Account", new_user_registration_path %> to upvote and comment posts.
 <% end %>
-<p>Upvotes: <%= @post.votes.count %></p>
+
+<br>
+<br>
+<p>Comments:</p>
+<%= render "comments/show" %>
+
+<%= render "comments/new" %>
+
+
 <hr>

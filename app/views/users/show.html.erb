@@ -1,10 +1,24 @@
+<h4><%= link_to ' All Posts', posts_path, class: "fa fa-arrow-left"%></h4>
+<br>
 <p>Posts by <%= @user.username %></p>
 <hr>
 
 <% if @user.posts.count > 0 %>
-	<% Post.where(user_id: params[:id]).find_each do |p| %>
-		<h4><%= link_to Professor.find(p.professor_id).name, professor_path(p.professor_id) %> always says:</h4>
-		<h4>"<%= p.text %>"</h4>
+	<% Post.where(user_id: @user.id).find_each do |p| %>
+		<h4>"<%= link_to p.text, p %>"</h4>
+
+		<p>Professor: <%= link_to Professor.find(p.professor_id).name, professor_path(Professor.friendly.find(p.professor_id)) %>
+			| by <%= link_to User.find(p.user_id).username, user_path(User.friendly.find(p.user_id))%>
+			| upvotes: <%= p.votes.count %></p>
+		<% if current_user %>
+			<% if current_user.id == p.user_id %>
+		  	<p><%= link_to 'Edit', edit_post_path(p) %>
+		  	<%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' }%></p>
+		  <% end %>
+		  <%= link_to 'Upvote', p, method: :upvote, class: "success button large hollow fa fa-arrow-circle-up fa-5x"%>
+		<% else %>
+			Please <%= link_to "Log In", new_user_session_path %> or <%= link_to "Create an Account", new_user_registration_path %> to upvote posts.
+		<% end %>
 		<hr>
 	<% end %>
 <% else %>

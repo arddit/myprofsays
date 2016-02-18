@@ -1,0 +1,9 @@
+
+<% if current_user %>
+	<%= form_for([@post, @post.comments.new]) do |f| %>
+	  <div class>
+	    <%= f.text_area :text, placeholder: 'submit a comment' %>
+	    <%= f.submit 'Save', class: "button hollow" %>
+	  </div>
+	<% end %>
+<% end %>
