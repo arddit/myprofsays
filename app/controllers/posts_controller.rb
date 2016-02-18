@@ -55,7 +55,7 @@ class PostsController < ApplicationController
     @post = Post.friendly.find(params[:id])
 
     if current_user
-      if @post.votes.create(user_id: current_user.id)
+      if @post.votes.create(user_id: current_user.id).id
         flash[:notice] =  "Thank you for upvoting!"
         redirect_to(posts_path)
       else 

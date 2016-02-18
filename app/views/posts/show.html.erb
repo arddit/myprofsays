@@ -1,11 +1,18 @@
+<h4><%= link_to ' All Posts', posts_path, class: "fa fa-arrow-left"%></h4>
+<br>
 <h4>"<%= @post.text %>"</h4> 
-<h4>Professor: <%= link_to Professor.find(@post.professor_id).name, professor_path(@post.professor_id) %></h4>
-<p>Posted by <%= link_to User.find(@post.user_id).username, user_path(@post.user_id)%></p>
+<p>Professor: <%= link_to Professor.find(@post.professor_id).name, professor_path(@post.professor_id) %>
+	| by <%= link_to User.find(@post.user_id).username, user_path(@post.user_id)%>
+	| upvotes: <%= @post.votes.count %></p>
+
+<% if current_user %>
+	<% if current_user.id == @post.user_id %>
+  	<p><%= link_to 'Edit', edit_post_path(@post) %>
+  	<%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' }%></p>
+  <% end %>
+  <%= link_to 'Upvote', @post, method: :upvote, class: "success button large hollow fa fa-arrow-circle-up fa-5x"%>
+<% else %>
+	Please <%= link_to "Log In", new_user_session_path %> or <%= link_to "Create an Account", new_user_registration_path %> to upvote posts.
+<% end %>
+<p>Upvotes: <%= @post.votes.count %></p>
 <hr>
-
-
-
-<br>
-<br>
-<p><%= link_to "Add a new Post", new_post_path %></p>
-<p><%= link_to 'Back to all posts.', posts_path %></p>
