@@ -16,8 +16,6 @@
 	  	<%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' }%></p>
 	  <% end %>
 	  <%= link_to 'Upvote', p, method: :upvote, class: "success button hollow fa fa-arrow-circle-up"%>
-	<% else %>
-		Please <%= link_to "Log In", new_user_session_path %> or <%= link_to "Create an Account", new_user_registration_path %> to upvote posts.
 	<% end %>
 	<hr>
 <% end %>
