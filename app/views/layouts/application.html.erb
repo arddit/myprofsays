@@ -14,10 +14,19 @@
   </head>
 
   <body>
-  	<%= render 'layouts/header' %>
-    <%= render 'layouts/messages' %>
-    <div class="row">
-    <%= yield %>
+    <div id="wrapper">
+      <div id="header">
+        <%= render 'layouts/header' %>
+      </div>
+      <%= render 'layouts/messages' %>
+      <div id="content">
+        <div class="row">
+          <%= yield %>
+        </div>
+      </div>
+      <div id="footer">
+        <%= render 'layouts/footer' %>
+      </div>
     </div>
   </body>
 </html>

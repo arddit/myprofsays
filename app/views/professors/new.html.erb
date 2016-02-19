@@ -1,5 +1,11 @@
 <div class="row">
   <div class="large-6 large-centered columns">
+	  <dvi class="row">
+		<div class="button-group">
+			<%= link_to " Back to all Professors", professors_path, class: "button hollow fi-arrow-left"%>
+			<%= link_to " Add a new Post", new_post_path, class: "button hollow fi-plus" %>
+		</div>
+	</dvi>
 
 	  <% if current_user %>
 	  <h3>Add a professor</h3>
@@ -20,7 +26,5 @@
 			<h4>Please <%= link_to "Log In", new_user_session_path %> or <%= link_to "Create an Account", new_user_registration_path %> to add a new professor.</h4>
 			
 		<% end %>
-
-		<%= link_to 'Back to all professors.', professors_path %>
 	</div>
 </div>

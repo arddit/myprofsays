@@ -1,3 +1,9 @@
+<dvi class="row">
+	<div class="button-group">
+		<%= link_to " Add a new Post", new_post_path, class: "button hollow fi-plus" %>
+		<%= link_to " Add a new Professor", new_professor_path, class: "button hollow fi-plus" %>
+		</div>
+</dvi>
 <% @post.each do |p| %>
 	<h4>"<%= link_to p.text, p %>"</h4>
 <p>Professor: <%= link_to Professor.find(p.professor_id).name, professor_path(Professor.friendly.find(p.professor_id)) %>
@@ -15,7 +21,3 @@
 	<% end %>
 	<hr>
 <% end %>
-
-<br>
-<br>
-<p><%= link_to "Add a new Post", new_post_path %></p>

@@ -1,6 +1,11 @@
-<h4><%= link_to ' All Professors', professors_path, class: "fa fa-arrow-left"%></h4>
+<dvi class="row">
+	<div class="button-group">
+		<%= link_to " Back to all Professors", professors_path, class: "button hollow fi-arrow-left"%>
+		<%= link_to " Add a new Professor", new_professor_path, class: "button hollow fi-plus" %>
+		</div>
+</dvi>
 <br>
-<h4><%= @professor.name %> always says:</h4>
+<h4><%= @professor.name %> </h4>
 <hr>
 
 <% if @professor.posts.count > 0 %>

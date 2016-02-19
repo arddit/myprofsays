@@ -1,8 +1,16 @@
-<% @professor.each do |p| %>
-	<p><%= link_to p.name, professor_path(p) %></p>
-<% end %>
+<dvi class="row">
+	<div class="button-group">
+		<%= link_to " Back to all Posts", posts_path, class: "button hollow fi-arrow-left"%>
+		<%= link_to " Add a new Professor", new_professor_path, class: "button hollow fi-plus" %>
+		</div>
+</dvi>
 
+<h4>All professors:</h4>
 <br>
-<br>
-<p><%= link_to "Add a new Professor", new_professor_path %></p>
-<p><%= link_to 'Back to all professors.', professors_path %></p>
+
+<ul>
+	<% @professor.each do |p| %>
+		<li><%= link_to p.name, professor_path(p) %></li>
+		<hr>
+	<% end %>
+</ul>

@@ -1,4 +1,9 @@
-<h4><%= link_to ' All Posts', posts_path, class: "fa fa-arrow-left"%></h4>
+<dvi class="row">
+	<div class="button-group">
+		<%= link_to " Back to All Posts", posts_path, class: "button hollow fi-arrow-left"%>
+		<%= link_to " Add a new Post", new_post_path, class: "button hollow fi-plus" %>
+		</div>
+</dvi>
 <br>
 <h4>"<%= @post.text %>"</h4> 
 <p>Professor: <%= link_to Professor.find(@post.professor_id).name, professor_path(Professor.friendly.find(@post.professor_id)) %>
