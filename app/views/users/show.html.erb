@@ -1,6 +1,6 @@
 <h4><%= link_to ' All Posts', posts_path, class: "fa fa-arrow-left"%></h4>
 <br>
-<p>Posts by <%= @user.username %></p>
+<h4>Posts by <%= @user.username %></h4>
 <hr>
 
 <% if @user.posts.count > 0 %>
@@ -17,10 +17,27 @@
 		  <% end %>
 		  <%= link_to 'Upvote', p, method: :upvote, class: "success button large hollow fa fa-arrow-circle-up fa-5x"%>
 		<% else %>
-			Please <%= link_to "Log In", new_user_session_path %> or <%= link_to "Create an Account", new_user_registration_path %> to upvote posts.
+			Please <%= link_to "Log In", new_user_session_path %> or <%= link_to "Create an Account", new_user_registration_path %> to upvote or comment on posts.
 		<% end %>
 		<hr>
 	<% end %>
 <% else %>
 	<h3>This user has no posts.</h3>
+<% end %>
+
+<h4>Comments by <%= @user.username %></h4>
+<hr>
+
+<% if @user.comments.count > 0 %>
+	<% Comment.where(user_id: @user.id).find_each do |c| %>
+		<p>"<%= c.text %>" | On: <%= link_to Post.find(c.post_id).text, post_path(Post.friendly.find(c.post_id)) %></p>
+		<% if current_user %>
+			<% if current_user.id == c.user_id %>
+		  	<%= link_to 'Delete', [c.post, c], data: { confirm: 'Are you sure?' }, :method => :delete %>
+		  <% end %>
+		<% end %>
+		<hr>
+	<% end %>
+<% else %>
+	<h4>This user has no comments.</h4>
 <% end %>
