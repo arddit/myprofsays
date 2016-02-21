@@ -20,4 +20,9 @@ $(function(){
 	$(document).foundation();
 });
 
+$(function() {
+    while( $('#fitin a').height() > $('#fitin').height() ) {
+        $('#fitin a').css('font-size', (parseInt($('#fitin a').css('font-size')) - 1) + "px" );
+    }
+});
 
