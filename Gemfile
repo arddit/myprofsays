@@ -31,6 +31,7 @@ gem 'rails_12factor'
 gem 'friendly_id', '~> 5.1.0'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
+gem "figaro"
 
 
 ruby '2.3.0'
