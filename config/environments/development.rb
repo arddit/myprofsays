@@ -10,7 +10,8 @@ Rails.application.configure do
     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     },
   :path => "/:class/:attachment/:id_partition/:style/:filename",
-  :url => ":myprofsays.s3-website.eu-central-1.amazonaws.com/"
+  :url => ":myprofsays.s3-website.eu-central-1.amazonaws.com/",
+  :s3_host_name => 's3.eu-central-1.amazonaws.com'
   }
 
   Paperclip.options[:command_path] = "/usr/local/bin/"

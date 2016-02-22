@@ -10,6 +10,7 @@ Rails.application.configure do
     },
   :path => "/:class/:attachment/:id_partition/:style/:filename",
   :url => ":myprofsays.s3-website.eu-central-1.amazonaws.com/"
+  :s3_host_name => 's3.eu-central-1.amazonaws.com'
   }
 
   
