@@ -6,6 +6,7 @@
 </dvi>
 <br>
 <h4><%= @professor.name %> </h4>
+<%= image_tag @professor.avatar.url(:medium) %>
 <hr>
 
 <% if @professor.posts.count > 0 %>
