@@ -8,6 +8,8 @@ Rails.application.configure do
     :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
+  :path => "/:class/:attachment/:id_partition/:style/:filename",
+  :url => ":myprofsays.s3-website.eu-central-1.amazonaws.com/"
   }
 
   
