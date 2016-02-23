@@ -15,6 +15,11 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.friendly.find(params[:id])
+    unless current_user == @post.user_id || current_user == User.find(1)
+      redirect_to @post 
+      flash[:alert] = "You don't have permission to edit this post."
+    end
   end
 
   def create

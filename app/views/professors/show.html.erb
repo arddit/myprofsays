@@ -19,7 +19,8 @@
 			<%= link_to (image_tag (@professor.avatar.url(:icon))), professor_path(@professor) %>
 			<%= link_to Professor.find(p.professor_id).name, professor_path(Professor.friendly.find(p.professor_id)) %>
 			| by <%= link_to User.find(p.user_id).username, user_path(User.friendly.find(p.user_id))%>
-			| upvotes: <%= p.votes.count %></p>
+			| upvotes: <%= p.votes.count %>
+			| <%= link_to "comments:", p %> <%= p.comments.count %></p>
 		<% if current_user %>
 			<% if current_user.id == p.user_id %>
 		  	<p><%= link_to 'Edit', edit_post_path(p) %>

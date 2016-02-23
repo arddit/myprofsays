@@ -1,1 +1,17 @@
-You don't have permission to view all users.
+<dvi class="row">
+	<div class="button-group">
+		<%= link_to " Back to all Posts", posts_path, class: "button hollow fi-arrow-left"%>
+		<%= link_to " Add a new Post", new_post_path, class: "button hollow fi-plus" %>
+		</div>
+</dvi>
+
+<h4>All users:</h4>
+<br>
+
+
+<% @users.each do |p| %>
+	<p>
+		<%= link_to user_path(p) %>
+	</p>
+	<hr>
+<% end %>

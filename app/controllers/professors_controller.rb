@@ -14,6 +14,10 @@ class ProfessorsController < ApplicationController
   end
 
   def edit
+    unless current_user == User.find(1)
+      redirect_to @professor 
+      flash[:alert] = "You don't have permission to edit this professor."
+    end
   end
 
   def create
