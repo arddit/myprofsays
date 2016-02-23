@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="large-6 large-centered columns">
+	  <dvi class="row">
+			<div class="button-group">
+				<%= link_to " Back to all Professors", professors_path, class: "button hollow fi-arrow-left"%>
+				<%= link_to " Add a new Post", new_post_path, class: "button hollow fi-plus" %>
+			</div>
+		</dvi>
+
+	  <% if current_user %>
+	  <h3>Eddit professor</h3>
+			<%= form_for(@professor) do |f| %>
+
+			<div class="field">
+	      <p><%= f.label :name%>
+	      <%= f.text_field :name, autofocus: true %></p>
+	    </div>
+
+	    <div class="field">
+	      <p>Upload an image:
+	      <%= f.file_field :avatar, class: "hollow button secondary" %></p>
+	    </div>
+
+	    <br>
+	    <div class="actions">
+	      <p><%= f.submit "Add Professor", class: "success expanded button" %></p>
+	    </div>
+
+			<% end %>
+		<% else %>
+			<h4>Please <%= link_to "Log In", new_user_session_path %> or <%= link_to "Create an Account", new_user_registration_path %> to add a new professor.</h4>
+			
+		<% end %>
+	</div>
+</div>

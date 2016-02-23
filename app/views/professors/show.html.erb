@@ -5,15 +5,19 @@
 		</div>
 </dvi>
 <br>
-<h4><%= @professor.name %> </h4>
-<%= image_tag @professor.avatar.url(:medium) %>
+<div class="row" style="text-align: center;">
+	<h4><%= @professor.name %> </h4>
+	<%= link_to (image_tag (@professor.avatar.url(:medium))), professor_path(@professor), class: "button hollow" %>
+</div>
 <hr>
 
 <% if @professor.posts.count > 0 %>
 	<% Post.where(professor_id: @professor.id).find_each do |p| %>
 		<h4>"<%= link_to p.text, p %>"</h4>
 
-		<p>Professor: <%= link_to Professor.find(p.professor_id).name, professor_path(Professor.friendly.find(p.professor_id)) %>
+		<p>Professor: 
+			<%= link_to (image_tag (@professor.avatar.url(:icon))), professor_path(@professor) %>
+			<%= link_to Professor.find(p.professor_id).name, professor_path(Professor.friendly.find(p.professor_id)) %>
 			| by <%= link_to User.find(p.user_id).username, user_path(User.friendly.find(p.user_id))%>
 			| upvotes: <%= p.votes.count %></p>
 		<% if current_user %>
@@ -30,8 +34,5 @@
 <% else %>
 	<h3>This professor has no posts yet.</h3>
 <% end %>
-
 <br>
 <br>
-<p><%= link_to "Add a new Professor", new_professor_path %></p>
-<p><%= link_to 'Back to all professors.', professors_path %></p>

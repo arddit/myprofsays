@@ -8,9 +8,11 @@
 <h4>All professors:</h4>
 <br>
 
-<ul>
-	<% @professor.each do |p| %>
-		<li><%= link_to p.name, professor_path(p) %></li>
-		<hr>
-	<% end %>
-</ul>
+
+<% @professor.each do |p| %>
+	<p>
+		<%= link_to (image_tag (p.avatar.url(:thumb))), professor_path(p), class: "" %>
+		<%= link_to p.name, professor_path(p) %> <%= link_to 'Edit', edit_professor_path(p) %>
+	</p>
+	<hr>
+<% end %>
