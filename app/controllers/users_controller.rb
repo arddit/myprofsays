@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    unless current_user == User.find(1)
+    unless current_user.admin?
       redirect_to root_path
       flash[:alert] = "You don't have permission to view all users."
     end

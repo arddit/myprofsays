@@ -25,13 +25,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
-gem 'pg', '0.17.1'
+gem 'pg', '0.18.4'
 gem 'foundation-rails'
 gem 'rails_12factor'
 gem 'friendly_id', '~> 5.1.0'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
-gem "figaro"
+gem 'figaro'
+gem 'cancan'
+gem 'cancancan', '~> 1.10'
 
 
 ruby '2.3.0'
