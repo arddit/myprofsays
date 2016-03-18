@@ -9,9 +9,14 @@
 <br>
 
 
-<% @users.each do |p| %>
+<% @users.each do |u| %>
 	<p>
-		<%= link_to user_path(p) %>
+		<%= link_to "#{u.username}", user_path(u) %>
+		<% if u.admin? %>
+			Is admin.
+		<% else %>
+			Not admin
+		<% end %>
 	</p>
 	<hr>
 <% end %>
